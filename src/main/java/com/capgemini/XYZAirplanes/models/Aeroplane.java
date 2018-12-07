@@ -9,18 +9,23 @@ import javax.persistence.Id;
 public class Aeroplane {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
     private float fuel;
 
     public Aeroplane() {
     }
 
-    public long getId() {
+    public Aeroplane(String id, float fuel){
+        this.id = id;
+        this.fuel = fuel;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
