@@ -1,9 +1,10 @@
 package com.capgemini.XYZAirplanes.models;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-public class TravelPlan {
+public class FlightPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -13,16 +14,20 @@ public class TravelPlan {
     private Aeroplane aeroplane;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "tocity_id")
-    private City toCity;
+    @JoinColumn(name = "to_airport_id")
+    private Airport toAirport;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "fromcity_id")
-    private City fromCity;
+    @JoinColumn(name = "from_airport_id")
+    private Airport fromAirport;
 
     private float expectedFuelConsumption = 2000f;
 
-    public TravelPlan() {
+    private LocalDateTime departureTime;
+
+    private float progression = 0;
+
+    public FlightPlan() {
     }
 
     public long getId() {
@@ -41,20 +46,20 @@ public class TravelPlan {
         this.aeroplane = aeroplane;
     }
 
-    public City getToCity() {
-        return toCity;
+    public Airport getToAirport() {
+        return toAirport;
     }
 
-    public void setToCity(City toCity) {
-        this.toCity = toCity;
+    public void setToAirport(Airport toAirport) {
+        this.toAirport = toAirport;
     }
 
-    public City getFromCity() {
-        return fromCity;
+    public Airport getFromCity() {
+        return fromAirport;
     }
 
-    public void setFromCity(City fromCity) {
-        this.fromCity = fromCity;
+    public void setFromCity(Airport fromCity) {
+        this.fromAirport = fromCity;
     }
 
     public float getExpectedFuelConsumption() {
@@ -63,5 +68,13 @@ public class TravelPlan {
 
     public void setExpectedFuelConsumption(float expectedFuelConsumption) {
         this.expectedFuelConsumption = expectedFuelConsumption;
+    }
+
+    public LocalDateTime getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(LocalDateTime departureTime) {
+        this.departureTime = departureTime;
     }
 }

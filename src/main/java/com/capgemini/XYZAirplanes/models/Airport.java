@@ -7,13 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class City {
+public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private int landingSpaces;
 
-    public City() {
+    public Airport() {
     }
 
     public long getId() {
@@ -30,5 +31,13 @@ public class City {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getLandingSpaces() {
+        return landingSpaces;
+    }
+
+    public void setLandingSpaces(int landingSpaces) {
+        this.landingSpaces = landingSpaces;
     }
 }

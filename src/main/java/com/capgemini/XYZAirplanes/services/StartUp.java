@@ -1,9 +1,9 @@
 package com.capgemini.XYZAirplanes.services;
 
 import com.capgemini.XYZAirplanes.models.Aeroplane;
-import com.capgemini.XYZAirplanes.models.City;
+import com.capgemini.XYZAirplanes.models.Airport;
 import com.capgemini.XYZAirplanes.repositories.AeroplaneRepository;
-import com.capgemini.XYZAirplanes.repositories.CityRepository;
+import com.capgemini.XYZAirplanes.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ import java.util.Collection;
 public class StartUp {
 
     @Autowired
-    private CityRepository cityRepository;
+    private AirportRepository cityRepository;
 
     @Autowired
     private AeroplaneRepository aeroplaneRepository;
@@ -24,18 +24,18 @@ public class StartUp {
     private void Initialise()
     {
         //initialise cities.
-        City cityOfAmsterdam = new City();
+        Airport cityOfAmsterdam = new Airport();
         cityOfAmsterdam.setName("Amsterdam");
-        City cityOfLondon = new City();
+        Airport cityOfLondon = new Airport();
         cityOfLondon.setName("London");
-        City cityOfParis = new City();
+        Airport cityOfParis = new Airport();
         cityOfParis.setName("Paris");
-        City cityOfStockholm = new City();
+        Airport cityOfStockholm = new Airport();
         cityOfStockholm.setName("Stockholm");
-        City cityOfBerlin = new City();
+        Airport cityOfBerlin = new Airport();
         cityOfBerlin.setName("Berlin");
 
-        Collection<City> cities = new ArrayList<>();
+        Collection<Airport> cities = new ArrayList<>();
         cities.add(cityOfAmsterdam);
         cities.add(cityOfLondon);
         cities.add(cityOfParis);
