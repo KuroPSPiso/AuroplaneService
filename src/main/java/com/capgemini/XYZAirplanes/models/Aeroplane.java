@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class Aeroplane {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private float fuel;
 
@@ -35,5 +34,15 @@ public class Aeroplane {
 
     public void setFuel(float fuel) {
         this.fuel = fuel;
+        if(this.fuel < 0) this.fuel = 0;
+    }
+
+    public void addFuel(float fuel) {
+        this.fuel += fuel;
+    }
+
+    public void removeFuel(float fuel) {
+        this.fuel -= fuel;
+        if(this.fuel < 0) this.fuel = 0;
     }
 }

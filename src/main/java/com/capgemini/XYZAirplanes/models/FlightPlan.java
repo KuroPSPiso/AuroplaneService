@@ -1,6 +1,7 @@
 package com.capgemini.XYZAirplanes.models;
 
 import javax.persistence.*;
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,7 +25,7 @@ public class FlightPlan {
     private float expectedFuelConsumption = 2000f;
 
     private LocalDateTime departureTime;
-
+    private Duration flightDuration;
     private float progression = 0;
 
     public FlightPlan() {
@@ -58,8 +59,8 @@ public class FlightPlan {
         return fromAirport;
     }
 
-    public void setFromCity(Airport fromCity) {
-        this.fromAirport = fromCity;
+    public void setFromAirport(Airport fromAirport) {
+        this.fromAirport = fromAirport;
     }
 
     public float getExpectedFuelConsumption() {
@@ -76,5 +77,13 @@ public class FlightPlan {
 
     public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
+    }
+
+    public Duration getFlightDuration() {
+        return flightDuration;
+    }
+
+    public void setFlightDuration(Duration flightDuration) {
+        this.flightDuration = flightDuration;
     }
 }
